@@ -102,7 +102,48 @@ void string()
     s[0]=c;
     s[strlen(s)-1]='X';
     printf("The value of s is %s\n",s);
+    printf("Size of=%d len=%d\n",sizeof(s),strlen(s));
 
+
+    //PLEASE NEVER DO THIS
+    //WE ARE writing data the the memory which is not belong to us
+    //C is so flex to allow us to do
+    //This is very risky
+    s[strlen(s)]=':';
+    printf("The value of s is %s\n",s);
+    s[5]='\0';
+    printf("The value of s is %s\n",s);
+}
+
+void boolDemo()
+{
+    int a = 3;
+    int i;
+    char s[10]="test";
+    printf("%d\n", a>3);
+    printf("%d\n", a<=3);
+    if(a<=3)
+        printf("%d\n", a<=3);
+    if(a>3)
+        printf("%d\n", a>3);
+    if(a)//if(a!=0)
+    {
+        printf("%d\n",a);
+    }
+    printf("Will I be printed?\n");
+    if(i)
+    {
+        printf("i=%d\n",i);
+    }
+//    for(int j=0;j<strlen(s);j++)
+//    {
+//        s[j]=s[j]+10;
+//    }
+//    printf(s);
+    for(int j=0;s[j]/*!=0*/;j++)
+    {
+        printf("%c(%d)\n",s[j],j);
+    }
 }
 
 int main(int argc, const char * argv[])
@@ -110,5 +151,6 @@ int main(int argc, const char * argv[])
 //    primitiveTypes();
 //    modifiers();
 //    cast();
-    string();
+//    string();
+    boolDemo();
 }

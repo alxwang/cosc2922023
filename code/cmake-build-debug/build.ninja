@@ -49,11 +49,17 @@ cmake_ninja_workdir = C$:/VisualStudioProjects/cosc2922023/code/cmake-build-debu
 
 build cmake_object_order_depends_target_code: phony || CMakeFiles/code.dir
 
-build CMakeFiles/code.dir/Intro/App.c.obj: C_COMPILER__code_Debug C$:/VisualStudioProjects/cosc2922023/code/Intro/App.c || cmake_object_order_depends_target_code
-  DEP_FILE = CMakeFiles\code.dir\Intro\App.c.obj.d
+build CMakeFiles/code.dir/Memory/App.c.obj: C_COMPILER__code_Debug C$:/VisualStudioProjects/cosc2922023/code/Memory/App.c || cmake_object_order_depends_target_code
+  DEP_FILE = CMakeFiles\code.dir\Memory\App.c.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu11
   OBJECT_DIR = CMakeFiles\code.dir
-  OBJECT_FILE_DIR = CMakeFiles\code.dir\Intro
+  OBJECT_FILE_DIR = CMakeFiles\code.dir\Memory
+
+build CMakeFiles/code.dir/Memory/memmap.c.obj: C_COMPILER__code_Debug C$:/VisualStudioProjects/cosc2922023/code/Memory/memmap.c || cmake_object_order_depends_target_code
+  DEP_FILE = CMakeFiles\code.dir\Memory\memmap.c.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu11
+  OBJECT_DIR = CMakeFiles\code.dir
+  OBJECT_FILE_DIR = CMakeFiles\code.dir\Memory
 
 
 # =============================================================================
@@ -63,7 +69,7 @@ build CMakeFiles/code.dir/Intro/App.c.obj: C_COMPILER__code_Debug C$:/VisualStud
 #############################################
 # Link the executable code.exe
 
-build code.exe: C_EXECUTABLE_LINKER__code_Debug CMakeFiles/code.dir/Intro/App.c.obj
+build code.exe: C_EXECUTABLE_LINKER__code_Debug CMakeFiles/code.dir/Memory/App.c.obj CMakeFiles/code.dir/Memory/memmap.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\code.dir
