@@ -23,7 +23,9 @@ int memoryMap(float x)
     printf("The value of a as a char is \t%c\n", a);
 
     printf("The address of double d is \t%p\n", &d);
+    printf("The value of int d in hex is\t%x\n", d);
     printf("The address of float b is \t%p\n", &b);
+    printf("The value of int b in hex is\t%x\n", b);
     printf("The address of char c is \t%p\n", &c);
     printf("The value of c in hex is \t%x\n", c);
     printf("The address of short s is \t%p\n", &s);
