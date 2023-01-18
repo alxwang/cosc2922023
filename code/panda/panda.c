@@ -2,6 +2,7 @@
 // Created by XIN Wang on 2023-01-13.
 //
 #include <stdio.h>
+#include <string.h>
 #include "panda.h"
 
 void printIntArray(int nArray[],int nSize)
@@ -31,16 +32,23 @@ void printIntPointer(int * nPtr,int nSize)
 
 void printStringasCharArray(char cArray[])
 {
+    //Assume we know it is string
+//    char[] foo = "alex";
+//    foo[4]='k'; //foo is not string anymore it is an arr of char which has a l e x k
+    for(int i=0;i<strlen(cArray);i++) printf("%c",cArray[i]);
+    for(int i=0; cArray[i]!='\0';i++) printf("%c",cArray[i]);
 
 }
 
 void printStringasPointer(char* cPtr)
 {
-
+    while(*cPtr!='\0')printf("%c",*cPtr++);
 }
 
 void printBytesOfInt(int n)
 {
+    char * s = (char*)&n;//s is not string becuase (char*) willnot force last byte be 0
+    for(int i=0;i<sizeof(n);i++)printf("%x",*(s+i));
 
 }
 

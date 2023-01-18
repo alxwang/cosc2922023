@@ -49,11 +49,17 @@ cmake_ninja_workdir = C$:/VisualStudioProjects/cosc2922023/code/cmake-build-debu
 
 build cmake_object_order_depends_target_code: phony || CMakeFiles/code.dir
 
-build CMakeFiles/code.dir/input/inputfuncs.c.obj: C_COMPILER__code_Debug C$:/VisualStudioProjects/cosc2922023/code/input/inputfuncs.c || cmake_object_order_depends_target_code
-  DEP_FILE = CMakeFiles\code.dir\input\inputfuncs.c.obj.d
+build CMakeFiles/code.dir/panda/App.c.obj: C_COMPILER__code_Debug C$:/VisualStudioProjects/cosc2922023/code/panda/App.c || cmake_object_order_depends_target_code
+  DEP_FILE = CMakeFiles\code.dir\panda\App.c.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu11
   OBJECT_DIR = CMakeFiles\code.dir
-  OBJECT_FILE_DIR = CMakeFiles\code.dir\input
+  OBJECT_FILE_DIR = CMakeFiles\code.dir\panda
+
+build CMakeFiles/code.dir/panda/panda.c.obj: C_COMPILER__code_Debug C$:/VisualStudioProjects/cosc2922023/code/panda/panda.c || cmake_object_order_depends_target_code
+  DEP_FILE = CMakeFiles\code.dir\panda\panda.c.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu11
+  OBJECT_DIR = CMakeFiles\code.dir
+  OBJECT_FILE_DIR = CMakeFiles\code.dir\panda
 
 
 # =============================================================================
@@ -63,7 +69,7 @@ build CMakeFiles/code.dir/input/inputfuncs.c.obj: C_COMPILER__code_Debug C$:/Vis
 #############################################
 # Link the executable code.exe
 
-build code.exe: C_EXECUTABLE_LINKER__code_Debug CMakeFiles/code.dir/input/inputfuncs.c.obj
+build code.exe: C_EXECUTABLE_LINKER__code_Debug CMakeFiles/code.dir/panda/App.c.obj CMakeFiles/code.dir/panda/panda.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\code.dir
