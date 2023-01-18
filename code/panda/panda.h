@@ -9,5 +9,6 @@ void printIntPointer(int *,int);
 void printStringasCharArray(char[]);
 void printStringasPointer(char*);
 void printBytesOfInt(int);
-
+double encode();
+void decode(double x);
 #endif //CODE_PANDA_H

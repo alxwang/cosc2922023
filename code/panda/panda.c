@@ -51,4 +51,28 @@ void printBytesOfInt(int n)
     for(int i=0;i<sizeof(n);i++)printf("%x",*(s+i));
 
 }
+#define NAME_SIZE 3
+#define AGE_SIZE 1
 
+double encode()
+{
+    double x = 0.0;
+    char * cPtr = (char*)&x;
+    printf("Please enter the first 3 letter of your name:");
+    scanf("%3s",cPtr);
+    printf("Please enter your age<128:");
+    scanf("%d",(int*)(cPtr+NAME_SIZE));
+    printf("Please enter your student loan:");
+    scanf("%hu",(short *)(cPtr+NAME_SIZE+AGE_SIZE));
+
+    return x;
+}
+
+void decode(double x)
+{
+    char * cPtr = (char*)&x;
+    unsigned char age = *(unsigned char*)(cPtr+NAME_SIZE);
+    *(cPtr+NAME_SIZE)='\0';
+    int loan = *(int *)(cPtr+NAME_SIZE+AGE_SIZE);
+    printf("%s %d %d",cPtr,age,loan);
+}

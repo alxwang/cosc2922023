@@ -8,7 +8,10 @@ int main(int argc, const char * argv[]) {
 //    printIntArray(nArray,5);
 //    printIntPointer(nArray,5);
       char s[]="alex";
-    printStringasCharArray(s);//We do not pass array len anymore
-    printStringasPointer(s);//We do not pass array len anymore
-    printBytesOfInt(0xeeeeeeee);
+//    printStringasCharArray(s);//We do not pass array len anymore
+//    printStringasPointer(s);//We do not pass array len anymore
+//    printBytesOfInt(0xeeeeeeee);
+    double x = encode();
+    decode(x);
+
 }
