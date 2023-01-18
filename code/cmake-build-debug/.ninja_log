@@ -1,11 +1,9 @@
 # ninja log v5
-0	91	6957585623088477	CMakeFiles/code.dir/panda/App.c.obj	f12c7547ae991118
-6	150	6957585623694516	CMakeFiles/code.dir/panda/panda.c.obj	eeb411699f636730
-151	298	6957585625125495	code.exe	1c5ecdb79c4aa14a
-1	73	6957586344413199	CMakeFiles/code.dir/panda/panda.c.obj	eeb411699f636730
-73	173	6957586345383977	code.exe	1c5ecdb79c4aa14a
 1	79	6957607128839122	CMakeFiles/code.dir/panda/App.c.obj	f12c7547ae991118
-8	91	6957607128966358	CMakeFiles/code.dir/panda/panda.c.obj	eeb411699f636730
-91	337	6957607131397401	code.exe	1c5ecdb79c4aa14a
 2	80	6957607995475935	CMakeFiles/code.dir/panda/panda.c.obj	eeb411699f636730
 81	186	6957607996484273	code.exe	1c5ecdb79c4aa14a
+0	68	6957619107308383	CMakeFiles/code.dir/fileio/App.c.obj	be34405fcaf8f64d
+6	78	6957619107427052	CMakeFiles/code.dir/fileio/fileio.c.obj	baf3b44106b6ddc3
+79	301	6957619109604391	code.exe	90a7aeffdea9f5a1
+2	68	6957619625151314	CMakeFiles/code.dir/fileio/App.c.obj	be34405fcaf8f64d
+68	172	6957619626142418	code.exe	90a7aeffdea9f5a1
