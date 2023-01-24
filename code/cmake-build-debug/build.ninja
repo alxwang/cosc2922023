@@ -61,6 +61,12 @@ build CMakeFiles/code.dir/fileio/fileio.c.obj: C_COMPILER__code_Debug C$:/Visual
   OBJECT_DIR = CMakeFiles\code.dir
   OBJECT_FILE_DIR = CMakeFiles\code.dir\fileio
 
+build CMakeFiles/code.dir/fileio/db.c.obj: C_COMPILER__code_Debug C$:/VisualStudioProjects/cosc2922023/code/fileio/db.c || cmake_object_order_depends_target_code
+  DEP_FILE = CMakeFiles\code.dir\fileio\db.c.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu11
+  OBJECT_DIR = CMakeFiles\code.dir
+  OBJECT_FILE_DIR = CMakeFiles\code.dir\fileio
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target code
@@ -69,7 +75,7 @@ build CMakeFiles/code.dir/fileio/fileio.c.obj: C_COMPILER__code_Debug C$:/Visual
 #############################################
 # Link the executable code.exe
 
-build code.exe: C_EXECUTABLE_LINKER__code_Debug CMakeFiles/code.dir/fileio/App.c.obj CMakeFiles/code.dir/fileio/fileio.c.obj
+build code.exe: C_EXECUTABLE_LINKER__code_Debug CMakeFiles/code.dir/fileio/App.c.obj CMakeFiles/code.dir/fileio/fileio.c.obj CMakeFiles/code.dir/fileio/db.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\code.dir
