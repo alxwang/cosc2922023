@@ -49,25 +49,25 @@ int main(int argc, const char * argv[]) {
     //demoWriteTextfputs("..\\fileio\\foo1.txt","w","Sask Polytech");
     //demoWriteTextfputc("..\\fileio\\foo1.txt","w","CST");
     //execisefputs("..\\fileio\\foo1.txt","w","alex");
-//    demoBinWrite("..\\fileio\\goo.bin");
-//    demoBinRead("..\\fileio\\goo.bin");
+    demoBinWrite("..\\fileio\\goo.bin");
+    demoBinRead("..\\fileio\\goo.bin");
 //    ExerciseBinWrite("..\\fileio\\foo.bin");
 //    ExerciseBinWrite("..\\fileio\\foo.bin");
 
-    DB_HANDLE db = open_db("db.bin");
-
-    char buf[256];
-    int rec_size = gen_rec("Alex",19,1000.0,buf,256);
-    int rec_id = add(buf,rec_size,db);
-    memset(buf,0,256);
-
-    rec_size= read(buf,256,db,rec_id);
-    char name[]="     ";
-    int age = 0;
-    float loan = 0.0;
-    degen_rec(name,&age,&loan,buf,256);
-    printf("%s %d %f",name,age,loan);
-    close_db(db);
-
+//    DB_HANDLE db = open_db("db.bin");
+//
+//    char buf[256];
+//    int rec_size = gen_rec("Alex",19,1000.0,buf,256);
+//    int rec_id = add(buf,rec_size,db);
+//    memset(buf,0,256);
+//
+//    rec_size= read(buf,256,db,rec_id);
+//    char name[]="     ";
+//    int age = 0;
+//    float loan = 0.0;
+//    degen_rec(name,&age,&loan,buf,256);
+//    printf("%s %d %f",name,age,loan);
+//    close_db(db);
+//
 
 }

@@ -181,7 +181,7 @@ int demoBinWrite(const char * fn)
         int rs = 0;
         int n = 100;
         rs = fwrite(&n,sizeof(int),1,f);
-        if(rs!=sizeof(int)) fileioerrorhandler(f);
+        if(rs!=1) fileioerrorhandler(f);
         float d = 3.14;
         rs = fwrite(&d,sizeof(float ),1,f);
         int narray[] = {1,2,3,4,5,6,7,8};
@@ -189,10 +189,11 @@ int demoBinWrite(const char * fn)
         //Before write the array write array size first
         rs = fwrite(&n,sizeof(int),1,f);
         rs = fwrite(narray,sizeof(int), 8,f);
-        char * name = "alex";
+//        char * name = "alex";
+        char name[] = "alex";
         rs = fwrite(name,sizeof(char), strlen(name),f);
-
         fclose(f);
+        return rs;
     }
 }
 
@@ -236,6 +237,7 @@ int demoBinRead(const char * fn)
         rs = fread(name,sizeof(char), 4,f);
         printf(name);
         fclose(f);
+        return rs;
     }
 }
 

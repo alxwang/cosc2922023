@@ -25,8 +25,8 @@ void printIntPointer(int * nPtr,int nSize)
     //Increase ++ op to a point will increase the address of the point based on the data type of the pointer
     for(int i=0;i<nSize;i++)
 //        printf("The loop counter is %d and the array value is %d and the value's address is is %p\n", i, nPtr[i], &nPtr[i]);
-//        printf("The loop counter is %d and the array value is %d and the value's address is is %p\n", i, *nPtr, nPtr++);
-    printf("The loop counter is %d and the array value is %d and the value's address is is %p\n", i, *(nPtr+i), nPtr+i);
+        printf("The loop counter is %d and the array value is %d and the value's address is is %p\n", i, *nPtr++, nPtr);//++ must right after the deref op
+//    printf("The loop counter is %d and the array value is %d and the value's address is is %p\n", i, *(nPtr+i), nPtr+i);
 
 }
 
@@ -51,7 +51,7 @@ void printBytesOfInt(int n)
     for(int i=0;i<sizeof(n);i++)printf("%x",*(s+i));
 
 }
-#define NAME_SIZE 3
+#define NAME_SIZE 5
 #define AGE_SIZE 1
 
 double encode()
@@ -59,7 +59,7 @@ double encode()
     double x = 0.0;
     char * cPtr = (char*)&x;
     printf("Please enter the first 3 letter of your name:");
-    scanf("%3s",cPtr);
+    scanf("%5s",cPtr);
     printf("Please enter your age<128:");
     scanf("%d",(int*)(cPtr+NAME_SIZE));
     printf("Please enter your student loan:");
@@ -73,6 +73,6 @@ void decode(double x)
     char * cPtr = (char*)&x;
     unsigned char age = *(unsigned char*)(cPtr+NAME_SIZE);
     *(cPtr+NAME_SIZE)='\0';
-    int loan = *(int *)(cPtr+NAME_SIZE+AGE_SIZE);
-    printf("%s %d %d",cPtr,age,loan);
+    short loan = *(short *)(cPtr+NAME_SIZE+AGE_SIZE);
+    printf("%s %d %d",cPtr,(int)age,loan);
 }
