@@ -9,6 +9,7 @@ set(CMAKE_REQUIRED_FLAGS "-Wl,--dynamicbase")
 #add_executable(code input/inputfuncs.c)
 #add_executable(code overflow/App.c)
 #add_executable(code panda/App.c panda/panda.c )
-add_executable(code fileio/App.c fileio/fileio.c fileio/fileio.h fileio/db.h fileio/db.c)
+#add_executable(code fileio/App.c fileio/fileio.c fileio/fileio.h fileio/db.h fileio/db.c)
+add_executable(code dma/app.c dma/dma.c dma/dma.h)
 
 

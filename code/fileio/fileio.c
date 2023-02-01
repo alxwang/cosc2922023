@@ -181,6 +181,7 @@ int demoBinWrite(const char * fn)
         int rs = 0;
         int n = 100;
         rs = fwrite(&n,sizeof(int),1,f);
+        //fwrite return total records writen, NOT BYTES
         if(rs!=1) fileioerrorhandler(f);
         float d = 3.14;
         rs = fwrite(&d,sizeof(float ),1,f);
@@ -214,7 +215,7 @@ int demoBinRead(const char * fn)
         int rs = 0;
         int n = 0;
         rs = fread(&n,sizeof(int),1,f);
-        // fread return The total number of elements successfully read is returned.
+        // fread return The total number of elements successfully read is returned. Not BYTES!
         if(rs!=1) fileioerrorhandler(f);
         printf("%d\n",n);
         float d = 0;
