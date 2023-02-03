@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <malloc.h>
+
 #include "dma.h"
 void printaddr(const char * hint, void * p)
 {
@@ -75,28 +75,41 @@ void test(int array[] , int * ptr)
 //    free(memblock);
 //}
 
+//int main(int argc, const char * argv[]) {
+//    printf("Please enter how many number you will enter:");
+//    int count = 0;
+//    scanf("%d",&count);
+//    int * memblock = getInts(count);
+//
+//    printf("Please enter how many number you will enter:");
+//    int count1 = 0;
+//    scanf("%d",&count1);
+//    int * memblock1 = getInts(count1);
+//    int sizes[2];
+//    sizes[0]=count;
+//    sizes[1]=count1;
+//
+//    //int * rs = addInts(memblock,memblock1,sizes);
+//    int * arrays[2];
+//    arrays[0]=memblock;
+//    arrays[1]=memblock1;
+////    int * rs = addIntsv2(arrays,sizes);
+//    int * rs = addIntsv4(arrays,sizes,2);
+//    printInts(rs,count+count1);
+//    free(memblock);
+//    free(memblock1);
+//    free(rs);
+//}
+
 int main(int argc, const char * argv[]) {
-    printf("Please enter how many number you will enter:");
-    int count = 0;
-    scanf("%d",&count);
-    int * memblock = getInts(count);
-
-    printf("Please enter how many number you will enter:");
-    int count1 = 0;
-    scanf("%d",&count1);
-    int * memblock1 = getInts(count1);
-    int sizes[2];
-    sizes[0]=count;
-    sizes[1]=count1;
-
-    //int * rs = addInts(memblock,memblock1,sizes);
-    int * arrays[2];
-    arrays[0]=memblock;
-    arrays[1]=memblock1;
-//    int * rs = addIntsv2(arrays,sizes);
-    int * rs = addIntsv4(arrays,sizes,2);
-    printInts(rs,count+count1);
-    free(memblock);
-    free(memblock1);
-    free(rs);
+//    char * line = getStringDMANoLimit("Please enter something(<500 chars):");
+//    char * line1 = getStringDMA("Please enter something(<500 chars):");
+//
+//    printf(concat(line,line1));
+//
+//    free(line);
+//    free(line1);
+    char * str = getNameandSIN();
+    printNameandSIN(str);
+    free(str);
 }
