@@ -100,3 +100,17 @@ int main(int argc, const char * argv[]) {
     free(memblock1);
     free(rs);
 }
+
+//int main(int argc, const char * argv[]) {
+//    int iArr[] = {0x193B5D7F, 0x2A4C6E80, 0x37DC4B9C};
+//    int *iPtr = iArr;
+//    char *cPtr = (char *) iArr;
+//    short *sPtr = (short *) &iArr[2];
+//    cPtr++;
+//    sPtr++;
+//    // The memory map should reflect the state of memory at this point.
+//    printf("Addresses: \niArr[0]: %p\niArr[1]: %p\niArr[2]: %p\niPtr: %p\ncPtr: %p\nsPtr: %p", &iArr[0], &iArr[1],
+//           &iArr[2], &iPtr, &cPtr, &sPtr);
+//    printf("Values: \niArr: %x\ncPtr: %x \niPtr: %x", iArr[0], *cPtr, *iPtr);
+//    printf("\niArr[2]: %x\nsPtr: %x", iArr[2], *sPtr);
+//}
