@@ -12,5 +12,7 @@ set(CMAKE_REQUIRED_FLAGS "-Wl,--dynamicbase")
 #add_executable(code fileio/App.c fileio/fileio.c fileio/fileio.h fileio/db.h fileio/db.c)
 #add_executable(code dma/app.c dma/dma.c dma/dma.h)
 #add_executable(code BitOp/App.c)
-add_executable(code funcpointer/app.c funcpointer/funcs.c)
+#add_executable(code funcpointer/app.c funcpointer/funcs.c)
+#add_executable(code math/app.c math/mathfunc.c)
+add_executable(code struct/structs.c struct/app.c)
 
