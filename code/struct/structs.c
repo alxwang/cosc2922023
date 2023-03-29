@@ -42,13 +42,13 @@ void displayStudent(Student * student){
 
 Student * getStudent()
 {
-    char * name[256];
+    char name[256];
     name[0]='\0';
     int studentNum=0;
     int marks[2];
     printf("Enter the name: ");
     getc(stdin);
-    gets_s(name,256);
+    fgets(name,256,stdin);
 
     printf("Enter the student number:");
     scanf("%d",&studentNum);
@@ -57,4 +57,38 @@ Student * getStudent()
     scanf("%d %d",&marks[0],&marks[1]);
     return createStudent(name,studentNum,marks,2);
 
+}
+
+int foo(int k)
+{
+    return k+1;
+}
+
+Classroom * PopuateClassroom()
+{
+    Classroom * c = malloc(sizeof(Classroom));
+    printf("Enter number of students:");
+    scanf("%hu",&c->sNumStudents);
+    c->sPtrPtr=(Student**) malloc(c->sNumStudents*sizeof(Student*));
+    for(int i=0;i<c->sNumStudents;i++)
+    {
+        c->sPtrPtr[i]=getStudent();
+//        *(c.sPtrPtr+i)=getStudent();
+    }
+    return c;
+}
+
+void displayClassroom(Classroom * c) {
+    for (int i = 0; i < c->sNumStudents; i++) {
+        displayStudent(c->sPtrPtr[i]);
+    }
+}
+
+void freeClassroom(Classroom * c)
+{
+    for (int i = 0; i < c->sNumStudents; i++) {
+        freeStudent(c->sPtrPtr[i]);
+    }
+    free(c->sPtrPtr);
+    free(c);
 }

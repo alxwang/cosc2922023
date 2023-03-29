@@ -39,9 +39,40 @@ typedef struct _classroom{
     Student ** sPtrPtr; //This is point to Student *[]
 }Classroom;
 
+Classroom * PopuateClassroom();
+void displayClassroom(Classroom * c);
+void freeClassroom(Classroom * c);
 
 
+typedef struct _pixel
+{
+    unsigned char r;
+    unsigned char g;
+    unsigned char b;
+    unsigned char a;
+}Pixel;
 
+typedef union
+{
+    unsigned int val;
+    Pixel components;
+}Color;
 
+typedef union
+{
+    unsigned int dword_val;
+    struct words{
+        unsigned short high;
+        unsigned short low;
+    };
+    struct nibbles{
+        unsigned char four;
+        unsigned char three;
+        unsigned char two;
+        unsigned char one;
+    };
+    unsigned char nibbie_arr[4];
+    unsigned short words_arr[2];
+}DWORD;
 
 #endif //CODE_STRUCTS_H

@@ -49,17 +49,17 @@ cmake_ninja_workdir = C$:/VisualStudioProjects/cosc2922023/code/cmake-build-debu
 
 build cmake_object_order_depends_target_code: phony || CMakeFiles/code.dir
 
-build CMakeFiles/code.dir/funcpointer/app.c.obj: C_COMPILER__code_Debug C$:/VisualStudioProjects/cosc2922023/code/funcpointer/app.c || cmake_object_order_depends_target_code
-  DEP_FILE = CMakeFiles\code.dir\funcpointer\app.c.obj.d
+build CMakeFiles/code.dir/bitmap/App.c.obj: C_COMPILER__code_Debug C$:/VisualStudioProjects/cosc2922023/code/bitmap/App.c || cmake_object_order_depends_target_code
+  DEP_FILE = CMakeFiles\code.dir\bitmap\App.c.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu11
   OBJECT_DIR = CMakeFiles\code.dir
-  OBJECT_FILE_DIR = CMakeFiles\code.dir\funcpointer
+  OBJECT_FILE_DIR = CMakeFiles\code.dir\bitmap
 
-build CMakeFiles/code.dir/funcpointer/funcs.c.obj: C_COMPILER__code_Debug C$:/VisualStudioProjects/cosc2922023/code/funcpointer/funcs.c || cmake_object_order_depends_target_code
-  DEP_FILE = CMakeFiles\code.dir\funcpointer\funcs.c.obj.d
+build CMakeFiles/code.dir/bitmap/bitmap.c.obj: C_COMPILER__code_Debug C$:/VisualStudioProjects/cosc2922023/code/bitmap/bitmap.c || cmake_object_order_depends_target_code
+  DEP_FILE = CMakeFiles\code.dir\bitmap\bitmap.c.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu11
   OBJECT_DIR = CMakeFiles\code.dir
-  OBJECT_FILE_DIR = CMakeFiles\code.dir\funcpointer
+  OBJECT_FILE_DIR = CMakeFiles\code.dir\bitmap
 
 
 # =============================================================================
@@ -69,7 +69,7 @@ build CMakeFiles/code.dir/funcpointer/funcs.c.obj: C_COMPILER__code_Debug C$:/Vi
 #############################################
 # Link the executable code.exe
 
-build code.exe: C_EXECUTABLE_LINKER__code_Debug CMakeFiles/code.dir/funcpointer/app.c.obj CMakeFiles/code.dir/funcpointer/funcs.c.obj
+build code.exe: C_EXECUTABLE_LINKER__code_Debug CMakeFiles/code.dir/bitmap/App.c.obj CMakeFiles/code.dir/bitmap/bitmap.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\code.dir

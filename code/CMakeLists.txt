@@ -14,5 +14,6 @@ set(CMAKE_REQUIRED_FLAGS "-Wl,--dynamicbase")
 #add_executable(code BitOp/App.c)
 #add_executable(code funcpointer/app.c funcpointer/funcs.c)
 #add_executable(code math/app.c math/mathfunc.c)
-add_executable(code struct/structs.c struct/app.c)
+#add_executable(code struct/structs.c struct/app.c )
+add_executable(code bitmap/App.c bitmap/bitmap.c bitmap/bitmap.h)
 
