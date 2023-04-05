@@ -63,5 +63,10 @@ void writeImage(IMAGE * image, FILE * f);
 void writeHeader(IMAGE * image, FILE * f);
 void writeData(IMAGE * image, FILE * f);
 
+typedef void(*BMP_FUN_PTR_ONE)(PIXEL*);
+typedef void(*BMP_FUN_PTR_TWO)(PIXEL*,PIXEL*);
+void processTwoImages(IMAGE* image1, IMAGE* image2, BMP_FUN_PTR_TWO func);
+void processImage(IMAGE * image,BMP_FUN_PTR_ONE func);
+PIXEL * getPixel(unsigned int row, unsigned int col, IMAGE * image);
 
 #endif //CODE_BITMAP_H

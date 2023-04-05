@@ -24,11 +24,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bitmap/App.c" beforeDir="false" afterPath="$PROJECT_DIR$/bitmap/App.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bitmap/bitmap.c" beforeDir="false" afterPath="$PROJECT_DIR$/bitmap/bitmap.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitmap/bitmap.h" beforeDir="false" afterPath="$PROJECT_DIR$/bitmap/bitmap.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/struct/app.c" beforeDir="false" afterPath="$PROJECT_DIR$/struct/app.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +114,7 @@
       <workItem from="1680099392264" duration="7289000" />
       <workItem from="1680107218845" duration="304000" />
       <workItem from="1680199517781" duration="10000" />
-      <workItem from="1680641157841" duration="3377000" />
+      <workItem from="1680641157841" duration="5852000" />
     </task>
     <task id="LOCAL-00001" summary="Merge">
       <created>1679502045612</created>

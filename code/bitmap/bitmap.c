@@ -118,3 +118,24 @@ PIXEL * getPixel(unsigned int row, unsigned int col, IMAGE * image)
             col* sizeof(PIXEL);
     return (PIXEL*)(((BYTE*)image->bmData)+offset);
 }
+
+void processImage(IMAGE * image,BMP_FUN_PTR_ONE func)
+{
+    for(unsigned  int i = 0;i<image->bmHDR->dwHeight;i++)
+        for(unsigned int j=0;j<image->bmHDR->dwWidth;j++)
+            func(getPixel(i,j,image));
+}
+#define MIN(a,b) a<b?a:b
+void processTwoImages(IMAGE* image1, IMAGE* image2, BMP_FUN_PTR_TWO func)
+{
+    unsigned int height = MIN(image1->bmHDR->dwHeight,
+                              image2->bmHDR->dwHeight);
+    unsigned int width = MIN(image1->bmHDR->dwWidth,
+                             image2->bmHDR->dwWidth);
+    for(unsigned  int i = 0;i<height;i++)
+        for(unsigned int j=0;j<width;j++)
+            func(getPixel(i,j,image1),
+                 getPixel(i,j,image2));
+}
+
+
