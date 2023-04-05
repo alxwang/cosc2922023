@@ -33,13 +33,55 @@ void readImage(IMAGE * image, FILE * f)
         readData(image,f);
 }
 void readHeader(IMAGE * image, FILE * f){
-
+    BOOL bSuccess=FALSE;
+    image->bmHDR=(BITMAPHDR*) malloc((sizeof(BITMAPHDR)));
+    if(image->bmHDR){
+        if(fread(image->bmHDR,sizeof(BITMAPHDR),1,f)==1)
+        {
+            bSuccess = TRUE;
+        }
+    }
+    if(!bSuccess && image->bmHDR)
+    {
+        free(image->bmHDR);
+        image->bmHDR=NULL;
+        printf("Read header from file failed.");
+    }
 }
 void readData(IMAGE * image, FILE * f){
-
+    BOOL bSuccess = FALSE;
+    unsigned int size = 0;
+    // 3 pixels in a row
+    // 9 bytes for a tow
+    //padding 3 bytes so 12 bytes per row
+    unsigned int padding = image->bmHDR->dwWidth % 4;
+    size = (image->bmHDR->dwWidth*sizeof(PIXEL)+padding)*image->bmHDR->dwHeight;
+    image->bmData=(PIXEL*) malloc(size);
+    if(image->bmHDR)
+    {
+        if(fread(image->bmData,size,1,f)==1)
+        {
+            bSuccess=TRUE;
+        }
+    }
+    if(!bSuccess && image->bmData)
+    {
+        free(image->bmData);
+        image->bmData=NULL;
+        printf("Failed to read image data.");
+    }
 }
 void printHeader(IMAGE* image){
-
+    BITMAPHDR * headerPtr = image->bmHDR;
+    printf("First two characters: %x\n", headerPtr->wType);
+    printf("File size: %d\n", headerPtr->dwFileSize);
+    printf("Data offset: %d\n", headerPtr->dwDataOffset);
+    printf("Dimensions: %d by %d\n", headerPtr->dwWidth, headerPtr->dwHeight);
+    printf("Planes: %d\n", headerPtr->wPlanes);
+    printf("Color depth: %d\n", headerPtr->wBitCount);
+    printf("Compression: %d\n", headerPtr->dwCompression);
+    printf("Image size: %d\n", headerPtr->dwImageSize);
+    printf("Colors used: %d\n", headerPtr->dwClrUsed);
 }
 void freeImage(IMAGE * image){
     free(image->bmHDR);
@@ -59,5 +101,20 @@ void writeHeader(IMAGE * image, FILE * f){
     }
 }
 void writeData(IMAGE * image, FILE * f){
+    unsigned int size,padding;
+    padding = image->bmHDR->dwWidth % 4;
+    size = (image->bmHDR->dwWidth*sizeof(PIXEL)+padding)*image->bmHDR->dwHeight;
+    if (fwrite(image->bmData,size,1,f)!=1)
+    {
+        printf("Failed to write image data");
+    }
+}
 
+PIXEL * getPixel(unsigned int row, unsigned int col, IMAGE * image)
+{
+    unsigned int padding = image->bmHDR->dwWidth % 4;
+    unsigned int offset =
+            (image->bmHDR->dwWidth*sizeof(PIXEL)+padding)*row+
+            col* sizeof(PIXEL);
+    return (PIXEL*)(((BYTE*)image->bmData)+offset);
 }

@@ -21,19 +21,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28ea8a36-0bff-43d8-acb6-c375eae8cd0a" name="Changes" comment="Merge">
-      <change afterPath="$PROJECT_DIR$/bitmap/App.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bitmap/bitmap.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bitmap/bitmap.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitmap/App.c" beforeDir="false" afterPath="$PROJECT_DIR$/bitmap/App.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitmap/bitmap.c" beforeDir="false" afterPath="$PROJECT_DIR$/bitmap/bitmap.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/code.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/struct/app.c" beforeDir="false" afterPath="$PROJECT_DIR$/struct/app.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/struct/structs.c" beforeDir="false" afterPath="$PROJECT_DIR$/struct/structs.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/struct/structs.h" beforeDir="false" afterPath="$PROJECT_DIR$/struct/structs.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,13 +77,14 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\VisualStudioProjects\cosc2922023\code\cmake-build-debug" />
       <recent name="C:\VisualStudioProjects\cosc2922023\code\fileio" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
     <configuration name="code" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="code" TARGET_NAME="code" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="code" RUN_TARGET_NAME="code">
@@ -117,6 +113,9 @@
       <workItem from="1679589828618" duration="2000" />
       <workItem from="1679685890128" duration="6694000" />
       <workItem from="1680099392264" duration="7289000" />
+      <workItem from="1680107218845" duration="304000" />
+      <workItem from="1680199517781" duration="10000" />
+      <workItem from="1680641157841" duration="3377000" />
     </task>
     <task id="LOCAL-00001" summary="Merge">
       <created>1679502045612</created>
@@ -154,6 +153,11 @@
           <url>file://$PROJECT_DIR$/struct/structs.h</url>
           <line>16</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/bitmap/bitmap.c</url>
+          <line>30</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
