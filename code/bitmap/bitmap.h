@@ -69,4 +69,10 @@ void processTwoImages(IMAGE* image1, IMAGE* image2, BMP_FUN_PTR_TWO func);
 void processImage(IMAGE * image,BMP_FUN_PTR_ONE func);
 PIXEL * getPixel(unsigned int row, unsigned int col, IMAGE * image);
 
+IMAGE resizeImage(IMAGE *image, unsigned int newWidth,unsigned newHeight);
+IMAGE crop(IMAGE *image, unsigned left, unsigned top,
+           unsigned int newWidth,unsigned int newHeight);
+IMAGE rotate(IMAGE * image, double theta);
+void antiAlias(IMAGE * image);
+
 #endif //CODE_BITMAP_H

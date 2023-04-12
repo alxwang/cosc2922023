@@ -32,14 +32,33 @@ void readImage(IMAGE * image, FILE * f)
     if(image->bmHDR)
         readData(image,f);
 }
+void fileioerrorhandler(FILE * f)
+{
+    int err = ferror(f);
+    if(err)
+    {
+        printf("Error %d: %s\n",err, strerror(err));
+    }
+    else
+    {
+        printf("Unknown reason caused failed to read/write file\n");
+    }
+
+}
 void readHeader(IMAGE * image, FILE * f){
     BOOL bSuccess=FALSE;
-    image->bmHDR=(BITMAPHDR*) malloc((sizeof(BITMAPHDR)));
+    image->bmHDR=(BITMAPHDR*) malloc(sizeof(BITMAPHDR));
     if(image->bmHDR){
+
         if(fread(image->bmHDR,sizeof(BITMAPHDR),1,f)==1)
         {
             bSuccess = TRUE;
         }
+        else
+        {
+            fileioerrorhandler(f);
+        }
+
     }
     if(!bSuccess && image->bmHDR)
     {
@@ -136,6 +155,136 @@ void processTwoImages(IMAGE* image1, IMAGE* image2, BMP_FUN_PTR_TWO func)
         for(unsigned int j=0;j<width;j++)
             func(getPixel(i,j,image1),
                  getPixel(i,j,image2));
+}
+
+
+IMAGE resizeImage(IMAGE *image, unsigned int newWidth,unsigned newHeight)
+{
+    IMAGE imgNew ={NULL, NULL};
+    int newImageSize = 0;
+    int padding = 0;
+    unsigned int width, height;
+    PIXEL startPixel = {255,255,255};
+    imgNew.bmHDR = (BITMAPHDR*)malloc(sizeof(BITMAPHDR));
+    if(imgNew.bmHDR)
+    {
+        memcpy(imgNew.bmHDR,image->bmHDR,sizeof(BITMAPHDR));
+        imgNew.bmHDR->dwWidth = newWidth;
+        imgNew.bmHDR->dwHeight=newHeight;
+        padding = newWidth % 4;
+        newImageSize=(newWidth*sizeof(PIXEL)+padding)*newHeight;
+        imgNew.bmHDR->dwImageSize=newImageSize;
+        imgNew.bmHDR->dwFileSize= newImageSize+sizeof(BITMAPHDR);
+
+        imgNew.bmData=(PIXEL*) malloc(newImageSize);
+        memset(imgNew.bmData,0x00,newImageSize);
+        if(imgNew.bmData)
+        {
+            height = newHeight<image->bmHDR->dwHeight?
+            newHeight:image->bmHDR->dwHeight;
+            width = newWidth<image->bmHDR->dwWidth?
+            newWidth:image->bmHDR->dwWidth;
+            for(unsigned int i=0;i<height;i++)
+            {
+                for(unsigned int j=0;j<width;j++)
+                {
+                    *getPixel(i,j,&imgNew) = *getPixel(i,j,image);
+                }
+            }
+        }
+    }
+    return imgNew;
+}
+
+
+IMAGE crop(IMAGE *image, unsigned left, unsigned top,
+           unsigned int newWidth,unsigned int newHeight)
+{
+    IMAGE imgNew ={NULL, NULL};
+    if(image->bmHDR->dwWidth<left+newWidth ||
+        image->bmHDR->dwHeight<top+newHeight)
+    {
+        return imgNew;
+    }
+
+    int newImageSize = 0;
+    int padding = 0;
+    unsigned int width, height;
+    PIXEL startPixel = {255,255,255};
+    imgNew.bmHDR = (BITMAPHDR*)malloc(sizeof(BITMAPHDR));
+    if(imgNew.bmHDR)
+    {
+
+        memcpy(imgNew.bmHDR,image->bmHDR,sizeof(BITMAPHDR));
+        imgNew.bmHDR->dwWidth = newWidth;
+        imgNew.bmHDR->dwHeight=newHeight;
+        padding = newWidth % 4;
+        newImageSize=(newWidth*sizeof(PIXEL)+padding)*newHeight;
+        imgNew.bmHDR->dwImageSize=newImageSize;
+        imgNew.bmHDR->dwFileSize= newImageSize+sizeof(BITMAPHDR);
+
+        imgNew.bmData=(PIXEL*) malloc(newImageSize);
+        memset(imgNew.bmData,0x00,newImageSize);
+        if(imgNew.bmData)
+        {
+
+            for(unsigned int i=0;i<newHeight;i++)
+            {
+                for(unsigned int j=0;j<newWidth;j++)
+                {
+                    *getPixel(i,j,&imgNew) = *getPixel(i+top,j+left,image);
+                }
+            }
+        }
+    }
+    return imgNew;
+
+}
+
+void initPixles(IMAGE * img,PIXEL p)
+{
+    for(unsigned int i=0;i<img->bmHDR->dwHeight;i++)
+        for(unsigned int j=0;j<img->bmHDR->dwWidth;j++)
+            *(getPixel(i,j,img))= p;//memcpy(getPixel(i,j,img),&p,sizeof(PIXEL))
+}
+
+
+IMAGE rotate(IMAGE * image, double theta)
+{
+    unsigned int imageSize =0,padding = 0;
+    IMAGE img = {NULL,NULL};
+
+    img.bmHDR=(BITMAPHDR*) malloc(sizeof (BITMAPHDR));
+    memcpy(img.bmHDR,image->bmHDR,sizeof(BITMAPHDR));
+    padding = img.bmHDR->dwWidth % 4;
+    imageSize=(img.bmHDR->dwWidth*sizeof(PIXEL)+padding)*img.bmHDR->dwHeight;
+    img.bmData=(PIXEL*) malloc(imageSize);
+    PIXEL  startPixel = {0,255,128};
+    initPixles(&img,startPixel);
+    int ox = img.bmHDR->dwWidth/2;
+    int oy = img.bmHDR->dwHeight/2;
+    int x,y;
+    for(int pY=0;pY<img.bmHDR->dwHeight;pY++)
+        for(int pX=0;pX<img.bmHDR->dwWidth;pX++)
+        {
+            x = (unsigned  int)(cos(theta)*(pX-ox)-sin(theta)*(pY-oy)+ox);
+            y = (unsigned  int)(sin(theta)*(pX-ox)+cos(theta)*(pY-oy)+oy);
+            if(x>=0 && x<img.bmHDR->dwWidth &&
+                y>=0 && y<img.bmHDR->dwHeight)
+                *getPixel(y,x,&img)=*getPixel(pY,pX,image);
+
+        }
+
+    return img;
+
+
+}
+
+
+void antiAlias(IMAGE * image)
+{
+
+
 }
 
 

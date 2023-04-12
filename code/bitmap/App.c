@@ -55,12 +55,17 @@ int main(int argc, char ** argv) {
     IMAGE * image = (IMAGE*)malloc(sizeof(IMAGE));
     readImage(image,in);
     printHeader(image);
-    IMAGE * image2 = (IMAGE*)malloc(sizeof(IMAGE));
-    readImage(image2,in2);
-    printHeader(image2);
+//    IMAGE * image2 = (IMAGE*)malloc(sizeof(IMAGE));
+//    readImage(image2,in2);
+//    printHeader(image2);
+
+    IMAGE  imgrs = rotate(image,0.1);
+    writeImage(&imgrs,out);
+    freeImage(&imgrs);
+
 
 //    processTwoImages(image,image2,mix);
-    processImage(image,swap);
+//    processImage(image,swap);
     writeImage(image,out);
     freeImage(image);
     free(image);
