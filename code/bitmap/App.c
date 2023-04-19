@@ -47,8 +47,36 @@ void mix(PIXEL * p1, PIXEL * p2){
     p1->bGrn=(p1->bGrn & 0XF0) | (p2->bGrn >> 4);
 
 }
-
+#pragma pack(push)
+#pragma pack(1)
+typedef struct {
+    int a;
+    char b;
+    short c;
+}Foo;
+#pragma pack(pop)
 int main(int argc, char ** argv) {
+
+    Foo pFoo[2] = {
+            {1,'a',2},
+            {3,'b',4}
+    };
+
+//         00
+//         04
+//         'b'
+//         00
+//         00
+//         00
+//         03
+//         00
+//         02
+//         'a'
+//         00
+//         00
+//         00
+//    pFoo 01
+
     FILE * in = fopen("bike.bmp","rb");
     FILE * in2 = fopen("face.bmp","rb");
     FILE * out = fopen("bikeface.bmp","wb");

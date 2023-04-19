@@ -60,6 +60,12 @@ typedef union
 
 typedef union
 {
+    char a;
+    int i
+} FOO;
+//for union, bigest member will be use for mem alloc Foo takes 4 bytes
+typedef union
+{
     unsigned int dword_val;
     struct words{
         unsigned short high;

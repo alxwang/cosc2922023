@@ -274,17 +274,60 @@ IMAGE rotate(IMAGE * image, double theta)
                 *getPixel(y,x,&img)=*getPixel(pY,pX,image);
 
         }
-
+    antiAlias(&img, &startPixel);
     return img;
 
 
 }
 
 
-void antiAlias(IMAGE * image)
+void antiAlias(IMAGE * image,PIXEL * p)
 {
+    PIXEL * current = NULL;
+    PIXEL * left = NULL;
+    PIXEL * right = NULL;
 
+    /*
+     *    123
+     *    4?6
+     *    789
+     *  ? is the current pixel, if it is magic RGB, it should be avg by 1-9 all 8 pixels
+     *  Adv: You should not use avg instead using a kernel(1-9 3x3 matrix and convolution op
+     */
+    if(image)
+    {
+        if(image->bmHDR && image->bmData)
+        {
+            for(int i = 0;i<image->bmHDR->dwHeight;i++)
+                for(int j =0;j<image->bmHDR->dwWidth;j++)
+                {
+                    current = getPixel(i,j,image);
+                    if(memcmp(current,p,sizeof(PIXEL))==0)
+                    {
+                        if(j>0) left= getPixel(i,j-1,image);
+                        if(j<image->bmHDR->dwWidth-1)right= getPixel(i,j+1,image);
+                        if(left && right)
+                        {
+                            current->bBlu=(left->bBlu+right->bBlu)>>1;
+                            current->bRed=(left->bRed+right->bRed)>>1;
+                            current->bGrn=(left->bGrn+right->bGrn)>>1;
+                        }
+                        else if(left) //right==NULL
+                        {
+                            memcpy(current,left, sizeof(PIXEL));
+                        }
+                        else//left==NULL but right!=NULL
+                        {
+                            memcpy(current,right, sizeof(PIXEL));
+                        }
+                        left= NULL;
+                        right=NULL;
+                    }
 
+                }
+        }
+
+    }
 }
 
 

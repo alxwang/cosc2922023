@@ -31,7 +31,7 @@ typedef struct _bitmap_header
     WORD wPlanes;
     WORD wBitCount;
     DWORD dwCompression;
-    DWORD dwImageSize;
+    DWORD dwImageSize;//this is same as the size we calc on line 77 in bitmap.c
     DWORD dwXPelsPerMeter;
     DWORD dwYPelsPerMeter;
     DWORD dwClrUsed;
@@ -73,6 +73,6 @@ IMAGE resizeImage(IMAGE *image, unsigned int newWidth,unsigned newHeight);
 IMAGE crop(IMAGE *image, unsigned left, unsigned top,
            unsigned int newWidth,unsigned int newHeight);
 IMAGE rotate(IMAGE * image, double theta);
-void antiAlias(IMAGE * image);
+void antiAlias(IMAGE * image,PIXEL * p);
 
 #endif //CODE_BITMAP_H
